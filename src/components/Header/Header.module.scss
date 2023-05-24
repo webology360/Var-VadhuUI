@@ -1,0 +1,53 @@
+@import "../../assets/sass/abstracts/mixins";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 7rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  @include mobile {
+    padding: 1rem 3rem;
+  }
+  @include tablet {
+    padding: 1rem 4rem;
+  }
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    &__menuLogo {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      @include mobile {
+        display: flex;
+      }
+      @include tablet {
+        display: flex;
+      }
+      svg {
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+    }
+    &__mainLogo {
+      cursor: pointer;
+    }
+  }
+  &__navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    @include mobile {
+      display: none;
+    }
+    @include tablet {
+      display: none;
+    }
+  }
+}

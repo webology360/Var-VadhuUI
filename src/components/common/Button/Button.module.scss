@@ -1,0 +1,21 @@
+//light mode-->button
+$button-DefaultTextColor: #fff;
+$button-DefaultBGColor: #e10936;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:export {
+  color: $button-DefaultTextColor;
+  backgroundColor: $button-DefaultBGColor;
+  borderColor: transparent;
+}

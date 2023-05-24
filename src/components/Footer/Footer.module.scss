@@ -1,0 +1,14 @@
+@import "../../assets/sass/abstracts/variables";
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  font-size: 1.6rem;
+  color: $font-PrimaryColor;
+  opacity: 0.5;
+  padding: 2rem;
+  flex-shrink: 0;
+}

@@ -1,0 +1,27 @@
+@import "../../assets/sass/abstracts/variables";
+
+//light mode-->navbar
+$navbar-DefaultTextColor: $font-PrimaryColor;
+$navbar-ActiveTextColor: #e10936;
+$navbar-PendingTextColor: #feae46;
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5rem;
+  font-size: 1.6rem;
+  &__item {
+    text-decoration: none;
+    color: $navbar-DefaultTextColor;
+    &__active {
+      font-weight: 600;
+      border-bottom: 0.2rem solid $navbar-ActiveTextColor;
+      // text-decoration: underline;
+      color: $navbar-ActiveTextColor;
+    }
+    &__pending {
+      color: $navbar-PendingTextColor;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@import "../../../../assets/sass/abstracts/variables";
+
+$profileInfo-Color: $font-PrimaryColor;
+$profileInfo-HeaderFontSize: 2rem;
+$profileInfo-FontSize: 1.6rem;
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 3rem;
+  color: $profileInfo-Color;
+  font-size: $profileInfo-FontSize;
+  &__main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    &__field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      &__heading {
+        font-weight: bold;
+      }
+      &__value {
+        font-weight: 400;
+      }
+    }
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__heading {
+      font-weight: 400;
+      font-size: 2.2rem;
+      color: $font-PrimaryColor;
+    }
+    &__buttonContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+    }
+  }
+}

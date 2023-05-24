@@ -1,0 +1,48 @@
+@import "../../assets/sass/abstracts/mixins";
+
+.contactUs {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 7rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  &__header {
+    font-weight: 400;
+    font-size: 2.2rem;
+  }
+  &__body {
+    padding: 3rem 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    gap: 10rem;
+    &__description {
+      text-align: center;
+    }
+    &__contacts {
+      display: flex;
+      justify-content: center;
+      gap: 30rem;
+      text-align: center;
+      @include mobile {
+        gap: 10rem;
+      }
+      @include tablet {
+        gap: 15rem;
+      }
+      &__contactDetails {
+        &__heading {
+          font-weight: 400;
+          font-size: 2.2rem;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+}

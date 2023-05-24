@@ -1,0 +1,25 @@
+@import "../../../assets/sass/abstracts/variables";
+
+.accountSettings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding-right: 7rem;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__heading {
+      font-weight: 400;
+      font-size: 2.2rem;
+      color: $font-PrimaryColor;
+    }
+  }
+  &__mainContainer {
+    padding: 5rem 0rem;
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+}

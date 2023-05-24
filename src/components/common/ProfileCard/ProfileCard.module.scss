@@ -1,0 +1,59 @@
+@import "../../../assets/sass/abstracts/variables";
+
+$card-BGColor: $color-PrimaryBGColor;
+$card-Color: $font-PrimaryColor;
+$card-BorderColor: #dcdcdc;
+$card-BoxShadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.1);
+$card-FontSize: 1.6rem;
+
+.profileCard {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  align-items: center;
+  justify-content: center;
+  //   width: 40rem;
+  height: 16rem;
+  background: $card-BGColor;
+  border: 0.1rem solid $card-BorderColor;
+  box-shadow: $card-BoxShadow;
+  cursor: pointer;
+  color: $card-Color;
+  &__noBorder {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+    justify-content: center;
+    height: 16rem;
+    background: $card-BGColor;
+    cursor: pointer;
+    color: $card-Color;
+  }
+  // &__imgContainer {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   &__img {
+  //     border-radius: 100%;
+  //     height: 11rem;
+  //     width: 11rem;
+  //     object-fit: cover;
+  //   }
+  // }
+  &__detailsContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: $card-FontSize;
+    gap: 1rem;
+    &__name {
+      font-weight: bold;
+    }
+    &__otherDetails {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      font-weight: 400;
+      gap: 0.5rem;
+    }
+  }
+}

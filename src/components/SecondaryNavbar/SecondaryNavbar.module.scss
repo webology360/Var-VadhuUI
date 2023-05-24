@@ -1,0 +1,42 @@
+@import "../../assets/sass/abstracts/variables";
+
+$navbar-DefaultTextColor: $font-PrimaryColor;
+$navbar-ActiveTextColor: #e10936;
+$navbar-PendingTextColor: #feae46;
+$font-weight: 400;
+$font-size: 1.6rem;
+
+.secondaryNavbar {
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    color: $navbar-DefaultTextColor;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    &__back {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration-line: underline;
+      cursor: pointer;
+    }
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      &__link {
+        text-decoration: none;
+        color: $navbar-DefaultTextColor;
+        &__active {
+          color: $navbar-ActiveTextColor;
+        }
+        &__pending {
+          color: $navbar-PendingTextColor;
+        }
+      }
+    }
+  }
+}

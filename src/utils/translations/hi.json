@@ -1,0 +1,14 @@
+{
+  "home.home": "घर",
+  "home.aboutUs": "हमारे बारे में",
+  "home.investorRelations": "निवेशक संबंध",
+  "home.careers": "आजीविका",
+  "home.media": "मिडिया",
+  "home.contactUs": "संपर्क करें",
+  "home.adminlogin": "व्यवस्थापक लॉगिन",
+  "home.login": "लॉगिन",
+  "home.logout": "लॉगआउट",
+
+  "admin.accountSettings.manageProfile": "Manage Profile",
+  "admin.accountSettings.changePassword": "Change Password"
+}

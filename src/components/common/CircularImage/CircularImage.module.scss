@@ -1,0 +1,16 @@
+$circularImg-borderColor: #244d62;
+
+.circularImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    border-style: solid;
+    border-color: $circularImg-borderColor;
+    border-radius: 100%;
+  }
+}

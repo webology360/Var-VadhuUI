@@ -1,0 +1,362 @@
+@import "../../../assets/sass/abstracts/variables";
+
+//light mode-->input
+// $input-LabelMsgColor1: #404040;
+// $input-BorderColor1: #b9b9b9;
+// $input-PlaceHolderColor1: #b9b9b9;
+
+$input-LabelColor: $font-SecondaryColor;
+$input-BorderColor: $font-SecondaryColor;
+$input-PlaceHolderColor: #949494;
+$input-DisabledBGColor: #fafafa;
+$input-ErrorColor: #ff0000;
+
+$inputDark-LabelColor: $font-PrimaryColor;
+$inputDark-FileNameColor: #244d62;
+$inputDark-BorderColor: #8f8f8f;
+$inputDark-PlaceHolderColor: #949494;
+$inputDark-DisabledBGColor: #fafafa;
+$inputDark-ErrorColor: #ff0000;
+
+.input__isLight {
+  display: flex;
+  .labelContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__label {
+      // font-weight: bold;
+      white-space: nowrap;
+      color: $input-LabelColor;
+      &__required {
+        color: $input-ErrorColor;
+      }
+    }
+    &__labelMsg {
+      color: $input-LabelColor;
+    }
+  }
+  .fieldBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &__inputContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      &__field {
+        position: relative;
+        font-size: $font-size;
+        color: $input-LabelColor;
+        border: 0.1rem solid $input-BorderColor;
+        background: transparent;
+        padding: 1rem;
+        &::placeholder {
+          color: $input-PlaceHolderColor;
+        }
+        &::-moz-placeholder {
+          color: $input-PlaceHolderColor;
+        }
+        &::-webkit-input-placeholder {
+          color: $input-PlaceHolderColor;
+        }
+        &:-ms-input-placeholder {
+          color: $input-PlaceHolderColor;
+        }
+        &::-o-input-placeholder {
+          color: $input-PlaceHolderColor;
+        }
+        &:focus,
+        &:focus-visible {
+          color: $input-LabelColor;
+          outline: none;
+        }
+        &::-ms-reveal,
+        &::-ms-clear {
+          display: none;
+        }
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          box-shadow: 0 0 0 5rem transparent inset;
+          -webkit-box-shadow: 0 0 0 5rem transparent inset;
+          transition: background-color 1000s ease-in-out 1s;
+          -webkit-text-fill-color: $input-LabelColor;
+        }
+        &:disabled {
+          background-color: $input-DisabledBGColor;
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+      &__fileNameContainer {
+        display: flex;
+        justify-content: flex-start;
+        gap: 1rem;
+        &__fileName {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          word-break: break-all;
+          gap: 0.7rem;
+          &__text {
+            display: -webkit-box;
+            align-items: center;
+            word-break: break-all;
+            color: $inputDark-FileNameColor;
+            font-size: $font-size;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+          &__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+          }
+        }
+      }
+      &__icon {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.5rem;
+        left: 2%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &__eyeIcon {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1;
+        height: 2rem;
+        right: 1%;
+        top: 50%;
+        transform: translateY(-50%);
+        svg {
+          height: 100%;
+        }
+      }
+      &__searchIcon {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1;
+        height: 2.2rem;
+        left: 3%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &__error {
+        position: absolute;
+        bottom: -2rem;
+        color: $input-ErrorColor;
+        white-space: nowrap;
+      }
+      &__loader {
+        position: absolute;
+        bottom: -4.4rem;
+        left: 0.2rem;
+        height: 4rem;
+      }
+      &__sliderValue {
+        position: absolute;
+        color: $input-LabelColor;
+        font-weight: bold;
+      }
+    }
+  }
+  select {
+    // appearance: none;
+    // text-overflow: "";
+    // background-color: transparent;
+    // background-repeat: no-repeat;
+    // background-position: 97%;
+    option {
+      appearance: none;
+      padding: 1rem 0rem;
+      background-color: $color-SecondaryBGColor;
+    }
+  }
+}
+
+.input__isDark {
+  display: flex;
+  .labelContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__label {
+      // font-weight: bold;
+      white-space: nowrap;
+      color: $inputDark-LabelColor;
+      &__required {
+        color: $inputDark-ErrorColor;
+      }
+    }
+    &__labelMsg {
+      color: $inputDark-LabelColor;
+    }
+  }
+  .fieldBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &__inputContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      &__field {
+        position: relative;
+        font-size: $font-size;
+        color: $inputDark-LabelColor;
+        border: 0.1rem solid $inputDark-BorderColor;
+        background: transparent;
+        padding: 1rem;
+        &::placeholder {
+          color: $inputDark-PlaceHolderColor;
+        }
+        &::-moz-placeholder {
+          color: $inputDark-PlaceHolderColor;
+        }
+        &::-webkit-input-placeholder {
+          color: $inputDark-PlaceHolderColor;
+        }
+        &:-ms-input-placeholder {
+          color: $inputDark-PlaceHolderColor;
+        }
+        &::-o-input-placeholder {
+          color: $inputDark-PlaceHolderColor;
+        }
+        &:focus,
+        &:focus-visible {
+          color: $inputDark-LabelColor;
+          outline: none;
+        }
+        &::-ms-reveal,
+        &::-ms-clear {
+          display: none;
+        }
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          box-shadow: 0 0 0 5rem transparent inset;
+          -webkit-box-shadow: 0 0 0 5rem transparent inset;
+          transition: background-color 1000s ease-in-out 1s;
+          -webkit-text-fill-color: $inputDark-LabelColor;
+        }
+        &:disabled {
+          background-color: $inputDark-DisabledBGColor;
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+      &__fileNameContainer {
+        display: flex;
+        justify-content: flex-start;
+        gap: 1rem;
+        &__fileName {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          word-break: break-all;
+          gap: 1rem;
+          &__text {
+            display: -webkit-box;
+            align-items: center;
+            word-break: break-all;
+            color: $inputDark-FileNameColor;
+            font-size: $font-size;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+          &__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+          }
+        }
+      }
+      &__icon {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.5rem;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &__eyeIcon {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1;
+        height: 2rem;
+        right: 1%;
+        top: 50%;
+        transform: translateY(-50%);
+        svg {
+          height: 100%;
+        }
+      }
+      &__searchIcon {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1;
+        height: 2.2rem;
+        left: 3%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &__error {
+        position: absolute;
+        bottom: -2rem;
+        color: $inputDark-ErrorColor;
+        white-space: nowrap;
+      }
+      &__loader {
+        position: absolute;
+        bottom: -4.4rem;
+        left: 0.2rem;
+        height: 4rem;
+      }
+      &__sliderValue {
+        position: absolute;
+        color: $inputDark-LabelColor;
+        font-weight: bold;
+      }
+    }
+  }
+  select {
+    // appearance: none;
+    // text-overflow: "";
+    // background-color: transparent;
+    // background-repeat: no-repeat;
+    // background-position: 97%;
+    option {
+      appearance: none;
+      padding: 1rem 0rem;
+    }
+  }
+}

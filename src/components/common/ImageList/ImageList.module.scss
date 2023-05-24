@@ -1,0 +1,41 @@
+$circularImg-borderColor: #244d62;
+
+.imageList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // height: 100%;
+  gap: 2rem;
+  &__activeImgContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      object-fit: contain;
+    }
+  }
+  &__imgListContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 7.5rem);
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    &__img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      object-fit: cover;
+      height: 7.5rem;
+      aspect-ratio: 1/1;
+      border-style: solid;
+      border-color: $circularImg-borderColor;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

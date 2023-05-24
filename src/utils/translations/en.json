@@ -1,0 +1,14 @@
+{
+  "home.home": "Home",
+  "home.aboutUs": "About Us",
+  "home.investorRelations": "Investor Relations",
+  "home.careers": "Careers",
+  "home.media": "Media",
+  "home.contactUs": "Contact Us",
+  "home.adminlogin": "Admin Login",
+  "home.login": "Login",
+  "home.logout": "Logout",
+
+  "admin.accountSettings.manageProfile": "Manage Profile",
+  "admin.accountSettings.changePassword": "Change Password"
+}

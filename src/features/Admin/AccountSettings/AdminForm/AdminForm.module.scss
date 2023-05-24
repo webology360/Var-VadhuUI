@@ -1,0 +1,37 @@
+@import "../../../../assets/sass/abstracts/variables";
+
+.adminForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%;
+  //   width: 100%;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__heading {
+      font-weight: 400;
+      font-size: 2.2rem;
+      color: $font-PrimaryColor;
+    }
+    &__buttonContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4rem;
+      &__reset {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        cursor: pointer;
+      }
+    }
+  }
+  &__fieldList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+}

@@ -1,0 +1,119 @@
+@import "../abstracts/variables";
+@font-face {
+  font-family: RobotoCondensed;
+  src: url("../../fonts/RobotoCondensed/RobotoCondensed-Regular.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: JockeyOne;
+  src: url("../../fonts/JockeyOne/JockeyOne-Regular.ttf") format("truetype");
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+  font-family: $font-family;
+  color: $font-PrimaryColor;
+  // height: 100%;
+}
+// @media (min-width: 1024px) {
+//   html {
+//     font-size: 7.49px;
+//   }
+// }
+// @media (min-width: 1152px) {
+//   html {
+//     font-size: 8.43px;
+//   }
+// }
+// @media (min-width: 1199px) {
+//   html {
+//     font-size: 8.77px;
+//   }
+// }
+// @media (min-width: 1280px) {
+//   html {
+//     font-size: 9.37px;
+//   }
+// }
+// @media (min-width: 1344px) {
+//   html {
+//     font-size: 9.83px;
+//   }
+// }
+// @media (min-width: 1366px) {
+//   html {
+//     font-size: 10px;
+//   }
+// }
+// @media (min-width: 1400px) {
+//   html {
+//     font-size: 10.24px;
+//   }
+// }
+// @media (min-width: 1440px) {
+//   html {
+//     font-size: 10.54px;
+//   }
+// }
+// @media (min-width: 1536px) {
+//   html {
+//     font-size: 11.24px;
+//   }
+// }
+// @media (min-width: 1600px) {
+//   html {
+//     font-size: 11.77px;
+//   }
+// }
+// @media (min-width: 1680px) {
+//   html {
+//     font-size: 12.29px;
+//   }
+// }
+// @media (min-width: 1728px) {
+//   html {
+//     font-size: 12.65px;
+//   }
+// }
+// @media (min-width: 1856px) {
+//   html {
+//     font-size: 13.58px;
+//   }
+// }
+// @media (min-width: 1920px) {
+//   html {
+//     font-size: 14.05px;
+//   }
+// }
+// @media (min-width: 2448px) {
+//   html {
+//     font-size: 17.92px;
+//   }
+// }
+// @media (min-width: 2960px) {
+//   html {
+//     font-size: 21.66px;
+//   }
+// }
+// @media (min-width: 3840px) {
+//   html {
+//     font-size: 28.11px;
+//   }
+// }
+// @media (min-width: 7680px) {
+//   html {
+//     font-size: 56.22px;
+//   }
+// }
+body,
+#root {
+  font-size: $font-size;
+  // height: 100%;
+  background-color: $color-PrimaryBGColor;
+}
