@@ -1,3 +1,5 @@
+@import "../../../assets/sass/abstracts/mixins";
+
 .backgroundContainer {
   width: 100%;
   display: flex;
@@ -7,46 +9,163 @@
   flex: 1 0 auto;
   // overflow-x: hidden;
   &__homeImg {
-    position: absolute;
-    bottom: 0;
+    // position: absolute;
+    // bottom: 0;
+    margin-top: 36rem;
     left: 0;
     right: 0;
     width: 100%;
   }
   &__ganeshJiImg {
     position: absolute;
-    top: 30%;
-    right: 10%;
-    transform: translateY(-50%);
+    top: 15rem;
+    right: 24rem;
+    @include laptop {
+      right: 0rem;
+      top: 6rem;
+      scale: 0.8;
+    }
+    @include tablet {
+      right: 0rem;
+      top: 15rem;
+      scale: 0.7;
+    }
+    @include mobile {
+      right: 0rem;
+      top: 4rem;
+      scale: 0.4;
+    }
+    @include smallMobile {
+      left: 16rem;
+      top: 4rem;
+      scale: 0.3;
+    }
+    // transform: translateY(-50%);
   }
   &__quoteImg {
     position: absolute;
-    top: 30%;
-    left: 30%;
-    transform: translateY(-55%);
+    top: 22rem;
+    left: 56rem;
+    @include laptop {
+      top: 10rem;
+      left: 42rem;
+      scale: 0.9;
+    }
+    @include tablet {
+      top: 4rem;
+      left: 40rem;
+      scale: 0.7;
+    }
+    @include mobile {
+      top: 0rem;
+      left: 15rem;
+      scale: 0.5;
+    }
+    @include smallMobile {
+      left: 10rem;
+    }
+    // transform: translateY(-50%);
   }
   &__img1 {
     position: absolute;
-    top: 6%;
-    left: 10%;
+    top: 6rem;
+    left: 15rem;
     z-index: 1;
+    @include laptop {
+      top: 5rem;
+      left: 12rem;
+      scale: 0.8;
+    }
+    @include tablet {
+      top: 2rem;
+      left: 8rem;
+      scale: 0.7;
+    }
+    @include mobile {
+      top: 0rem;
+      left: 2rem;
+      scale: 0.5;
+    }
+    @include smallMobile {
+      left: 0rem;
+      scale: 0.45;
+    }
   }
   &__img2 {
     position: absolute;
-    top: 30%;
-    left: 15%;
+    top: 22rem;
+    left: 26rem;
     z-index: 2;
+    @include laptop {
+      top: 20rem;
+      left: 21rem;
+      scale: 0.8;
+    }
+    @include tablet {
+      top: 15rem;
+      left: 16rem;
+      scale: 0.7;
+    }
+    @include mobile {
+      top: 11rem;
+      left: 6rem;
+      scale: 0.5;
+    }
+    @include smallMobile {
+      left: 4rem;
+      scale: 0.45;
+    }
   }
   &__img3 {
     position: absolute;
-    top: 55%;
-    left: 4%;
+    top: 42rem;
+    left: 7rem;
     z-index: 3;
+    @include laptop {
+      top: 36rem;
+      left: 4rem;
+      scale: 0.8;
+    }
+    @include tablet {
+      top: 30rem;
+      left: 3rem;
+      scale: 0.7;
+    }
+    @include mobile {
+      top: 23rem;
+      left: -2rem;
+      scale: 0.5;
+    }
+    @include smallMobile {
+      top: 22rem;
+      left: -4rem;
+      scale: 0.45;
+    }
   }
   &__img4 {
     position: absolute;
-    bottom: 3%;
-    left: 22%;
+    top: 43rem;
+    left: 40rem;
     z-index: 4;
+    @include laptop {
+      top: 36rem;
+      left: 32rem;
+      scale: 0.8;
+    }
+    @include tablet {
+      top: 28rem;
+      left: 26rem;
+      scale: 0.7;
+    }
+    @include mobile {
+      top: 20rem;
+      left: 15rem;
+      scale: 0.5;
+    }
+    @include smallMobile {
+      top: 18rem;
+      left: 11rem;
+      scale: 0.45;
+    }
   }
 }

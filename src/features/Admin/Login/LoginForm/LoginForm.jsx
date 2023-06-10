@@ -82,7 +82,8 @@ const LoginForm = () => {
 
   const onSubmit = (values) => {
     console.log(values);
-    login(values)
+    const { forgotPassword, ...data } = values;
+    login(data)
       .then((response) => {
         console.log(response);
         if (response.status === 200) {
