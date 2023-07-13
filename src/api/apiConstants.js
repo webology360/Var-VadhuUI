@@ -1,6 +1,6 @@
 export const apiContants = {
-    BASE_URL_1: "https://varvadhuservices.onrender.com/api/",
-  //BASE_URL_1: "http://localhost:5000/api/",
+  BASE_URL_1: "http://localhost:5000/api/",
+  //BASE_URL_1: "https://varvadhuservices.onrender.com/api/",
   ADMIN: {
     LOGIN: "admin/login",
     SIGNUP: "admin/signup",
@@ -21,17 +21,21 @@ export const apiContants = {
   },
   USER: {
     GET_SEARCH_USERS_LIST: (
-      type,
-      ageFrom,
-      ageTo,
-      state,
-      location,
-      motherTounge
+      type
+      // ageFrom,
+      // ageTo,
+      // state,
+      // location,
+      // motherTounge
     ) =>
-      `user/list/${type}?ageFrom=${ageFrom}&ageTo=${ageTo}&state=${state}&location=${location}&motherTounge=${motherTounge}`,
+      `user/list/${type}
+      `,
+    // ?ageFrom=${ageFrom}&ageTo=${ageTo}
+    // &state=${state}&location=${location}&motherTounge=${motherTounge}
     GET_USER_BY_ID: (userId, updateCount = "") =>
       `user/getUser/${userId}${
         updateCount ? "?updateCount=" + updateCount : ""
       }`,
+    CONNECT_USER: (userId) => `user/sendMessage/${userId}`,
   },
 };

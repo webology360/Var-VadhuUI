@@ -5,6 +5,7 @@ import classes from "./Input.module.scss";
 import ShowPasswordIcon from "../../../assets/icons/Login/ShowPasswordIcon";
 import HidePasswordIcon from "../../../assets/icons/Login/HidePasswordIcon";
 import { GrClose } from "react-icons/gr";
+import MultiSelect from "./MultiSelect";
 
 const Input = ({
   fieldProps: {
@@ -21,6 +22,7 @@ const Input = ({
     placeholder,
     defaultValue = "",
     valueArr,
+    setValueArr,
     error,
     required,
     rows = 1,
@@ -96,6 +98,7 @@ const Input = ({
         flexDirection: direction,
         gap: gap + "rem",
         justifyContent: direction.includes("reverse") ? "flex-end" : "normal",
+        width: widthType === "%" ? width + widthType : width + "rem",
       }}
     >
       <div className={classes.labelContainer}>
@@ -116,7 +119,7 @@ const Input = ({
             <span className={classes.labelContainer__label__required}>
               {validations?.required?.value || required ? "*" : ""}
             </span>{" "}
-            :
+            {/* : */}
           </label>
         )}
         {labelMsg && (
@@ -248,6 +251,17 @@ const Input = ({
               min={minRange}
               max={maxRange}
               {...rest}
+            />
+          ) : type === "multiselect" ? (
+            <MultiSelect
+              borderRadius={borderRadius}
+              label={label}
+              fieldName={fieldName}
+              height={height}
+              setValueArr={onChange}
+              valueArr={valueArr}
+              width={width}
+              widthType={widthType}
             />
           ) : (
             <input

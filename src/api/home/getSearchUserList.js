@@ -4,22 +4,24 @@ import { apiTypes } from "../apiTypes";
 
 const getSearchUserList = (
   type,
-  ageFrom,
-  ageTo,
-  state,
-  location,
-  motherTounge
+  data
+  // ageFrom,
+  // ageTo,
+  // state,
+  // location,
+  // motherTounge
 ) => {
   return apiRequestType(
-    apiTypes.GET,
+    apiTypes.POST,
     apiContants.USER.GET_SEARCH_USERS_LIST(
-      type,
-      ageFrom,
-      ageTo,
-      state,
-      location,
-      motherTounge
-    )
+      type
+      // ageFrom,
+      // ageTo,
+      // state,
+      // location,
+      // motherTounge
+    ),
+    data
   );
 };
 

@@ -1,10 +1,12 @@
 {
   "home.home": "घर",
+  "home.blogs": "ब्लॉग",
   "home.aboutUs": "हमारे बारे में",
   "home.investorRelations": "निवेशक संबंध",
   "home.careers": "आजीविका",
   "home.media": "मिडिया",
   "home.contactUs": "संपर्क करें",
+  "home.privacyPolicy": "गोपनीयता नीति",
   "home.adminlogin": "व्यवस्थापक लॉगिन",
   "home.login": "लॉगिन",
   "home.logout": "लॉगआउट",

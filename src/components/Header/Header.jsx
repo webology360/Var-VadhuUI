@@ -47,6 +47,11 @@ const Header = () => {
     },
     {
       key: 2,
+      name: "home.blogs",
+      path: appRoutes.BLOGS,
+    },
+    {
+      key: 3,
       name: "home.aboutUs",
       path: appRoutes.ABOUT_US,
     },
@@ -66,9 +71,14 @@ const Header = () => {
     //   path: appRoutes.HOME,
     // },
     {
-      key: 6,
+      key: 4,
       name: "home.contactUs",
       path: appRoutes.CONTACT_US,
+    },
+    {
+      key: 5,
+      name: "home.privacyPolicy",
+      path: appRoutes.PRIVACY_POLICY,
     },
   ];
 

@@ -48,8 +48,9 @@ const ProfileCard = ({
           <div>Age : {profile?.age}</div>
           <div>Occu : {profile?.occupation}</div>
           <div>
-            Region :{" "}
-            {`${profile?.presentAddress?.location}, ${profile?.presentAddress?.state}`}
+            Region : {/* ${profile?.presentAddress?.location}, */}
+            {`
+             ${profile?.presentAddress?.state}`}
           </div>
         </div>
       </div>

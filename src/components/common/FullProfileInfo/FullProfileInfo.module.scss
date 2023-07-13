@@ -20,6 +20,9 @@ $profileInfo-FontSize: 1.6rem;
   &__header {
     font-size: $profileInfo-HeaderFontSize;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   &__infoContainer {
     display: flex;

@@ -12,6 +12,7 @@ import appRoutes from "../../../../utils/appRoutes";
 import { handleToken } from "../../../../utils/handleToken";
 import { useDispatch } from "react-redux";
 import changePassword from "../../../../api/admin/changePassword";
+import { setMessage } from "../../../Common/commonSlice";
 
 const ResetPasswordForm = ({ isChangePassword = false }) => {
   const navigate = useNavigate();
@@ -123,23 +124,51 @@ const ResetPasswordForm = ({ isChangePassword = false }) => {
         if (oldPassword !== newPassword) {
           changePassword({ oldPassword, newPassword })
             .then((response) => {
+              dispatch(
+                setMessage({
+                  messageType: response.data?.messageType,
+                  message: response.data?.message,
+                })
+              );
               if (response.status === 200) {
                 // navigate(appRoutes.ADMIN.DEFAULT);
                 reset();
               }
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+              console.log(err);
+              dispatch(
+                setMessage({
+                  messageType: err.response.data?.messageType,
+                  message: err.response.data?.message,
+                })
+              );
+            });
         } else {
         }
       } else {
         resetPassword(adminId, { newPassword })
           .then((response) => {
+            dispatch(
+              setMessage({
+                messageType: response.data?.messageType,
+                message: response.data?.message,
+              })
+            );
             if (response.status === 200) {
               handleToken(dispatch, response?.data?.token);
               navigate(appRoutes.ADMIN.DEFAULT);
             }
           })
-          .catch((err) => console.log(err));
+          .catch((err) => {
+            console.log(err);
+            dispatch(
+              setMessage({
+                messageType: err.response.data?.messageType,
+                message: err.response.data?.message,
+              })
+            );
+          });
       }
     }
   };

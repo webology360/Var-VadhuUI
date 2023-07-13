@@ -6,10 +6,16 @@ import { useLocation, useParams } from "react-router";
 import ImageList from "../../../components/common/ImageList/ImageList";
 import FullProfileInfo from "../../../components/common/FullProfileInfo/FullProfileInfo";
 import getUserById from "../../../api/home/getUserById";
+import ConnectModal from "../../../components/ConnectModal/ConnectModal";
 const ProfileInfo = () => {
   const { userId } = useParams();
   const { pathname } = useLocation();
   const [activeProfile, setActiveProfile] = useState(null);
+  const [isConnectModal, setIsConnectModal] = useState(false);
+
+  const handleConnectModal = () => {
+    setIsConnectModal(!isConnectModal);
+  };
 
   // const homeState = useSelector((state) => state.home);
   // const { profiles } = homeState;
@@ -40,8 +46,16 @@ const ProfileInfo = () => {
       </div>
       <div className={classes.profileInfo__infoContainer}>
         <ImageList images={activeProfile?.imgList} />
-        <FullProfileInfo profile={activeProfile} />
+        <FullProfileInfo
+          profile={activeProfile}
+          handleConnect={handleConnectModal}
+        />
       </div>
+      <ConnectModal
+        connectModal={isConnectModal}
+        handleConnectModal={handleConnectModal}
+        userId={userId}
+      />
     </div>
   );
 };

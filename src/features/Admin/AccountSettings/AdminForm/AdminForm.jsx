@@ -13,6 +13,7 @@ import getAdminProfile from "../../../../api/admin/getAdminProfile";
 import { setProfile } from "../../adminSlice";
 import appRoutes from "../../../../utils/appRoutes";
 import updateAdmin from "../../../../api/admin/updateAdmin";
+import { setMessage } from "../../../Common/commonSlice";
 
 const AdminForm = () => {
   const navigate = useNavigate();
@@ -204,6 +205,12 @@ const AdminForm = () => {
     if (adminId) {
       updateAdmin(adminId, values)
         .then((response) => {
+          dispatch(
+            setMessage({
+              messageType: response.data?.messageType,
+              message: response.data?.message,
+            })
+          );
           if (response.status === 200) {
             reset();
             navigate(appRoutes.ADMIN.ACCOUNT_SETTINGS.PROFILE.DEFAULT);
@@ -211,10 +218,22 @@ const AdminForm = () => {
         })
         .catch((err) => {
           console.log(err);
+          dispatch(
+            setMessage({
+              messageType: err.response.data?.messageType,
+              message: err.response.data?.message,
+            })
+          );
         });
     } else {
       addAdmin(values)
         .then((response) => {
+          dispatch(
+            setMessage({
+              messageType: response.data?.messageType,
+              message: response.data?.message,
+            })
+          );
           if (response.status === 201) {
             reset();
             navigate(appRoutes.ADMIN.ACCOUNT_SETTINGS.PROFILE.DEFAULT);
@@ -222,6 +241,12 @@ const AdminForm = () => {
         })
         .catch((err) => {
           console.log(err);
+          dispatch(
+            setMessage({
+              messageType: err.response.data?.messageType,
+              message: err.response.data?.message,
+            })
+          );
         });
     }
   };

@@ -16,6 +16,8 @@ import ChangePassword from "../features/Admin/AccountSettings/ChangePassword/Cha
 import AdminForm from "../features/Admin/AccountSettings/AdminForm/AdminForm";
 import ContactUs from "../components/ContactUs/ContactUs";
 import AboutUs from "../components/AboutUs/AboutUs";
+import Blogs from "../components/Blogs/Blogs";
+import PrivacyPolicy from "../components/PrivacyPolicy/PrivacyPolicy";
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -28,12 +30,20 @@ const Router = () => {
       element: <Home />,
     },
     {
+      path: appRoutes.BLOGS,
+      element: <Blogs />,
+    },
+    {
       path: appRoutes.CONTACT_US,
       element: <ContactUs />,
     },
     {
       path: appRoutes.ABOUT_US,
       element: <AboutUs />,
+    },
+    {
+      path: appRoutes.PRIVACY_POLICY,
+      element: <PrivacyPolicy />,
     },
     {
       path: appRoutes.PROFILE.DEFAULT,

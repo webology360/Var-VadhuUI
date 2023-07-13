@@ -1,10 +1,12 @@
 {
   "home.home": "Home",
+  "home.blogs": "Blogs",
   "home.aboutUs": "About Us",
   "home.investorRelations": "Investor Relations",
   "home.careers": "Careers",
   "home.media": "Media",
   "home.contactUs": "Contact Us",
+  "home.privacyPolicy": "Privacy Policy",
   "home.adminlogin": "Admin Login",
   "home.login": "Login",
   "home.logout": "Logout",

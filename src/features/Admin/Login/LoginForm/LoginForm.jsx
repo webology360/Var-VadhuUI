@@ -13,6 +13,7 @@ import classes from "./LoginForm.module.scss";
 import login from "../../../../api/admin/login";
 import { handleToken } from "../../../../utils/handleToken";
 import ForgotPasswordModal from "./ForgotPassword/ForgotPasswordModal";
+import { setMessage } from "../../../Common/commonSlice";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -81,11 +82,16 @@ const LoginForm = () => {
   };
 
   const onSubmit = (values) => {
-    console.log(values);
     const { forgotPassword, ...data } = values;
     login(data)
       .then((response) => {
         console.log(response);
+        dispatch(
+          setMessage({
+            messageType: response.data.messageType,
+            message: response.data.message,
+          })
+        );
         if (response.status === 200) {
           handleToken(dispatch, response?.data?.token);
           if (response?.data?.resetPassword) {
@@ -96,6 +102,12 @@ const LoginForm = () => {
         }
       })
       .catch((err) => {
+        dispatch(
+          setMessage({
+            messageType: err.response.data.messageType,
+            message: err.response.data.message,
+          })
+        );
         console.log(err);
       });
   };

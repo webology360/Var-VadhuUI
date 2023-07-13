@@ -9,8 +9,11 @@ import Modal from "../../../components/common/Modal/Modal";
 import classes from "./ManageUser.module.scss";
 import appRoutes from "../../../utils/appRoutes";
 import { useLocation } from "react-router";
+import { setMessage } from "../../Common/commonSlice";
+import { useDispatch } from "react-redux";
 
 const ManageUser = () => {
+  const dispatch = useDispatch();
   const { pathname } = useLocation();
   const [usersList, setUsersList] = useState([]);
   const [activeType, setActiveType] = useState(2);
@@ -37,6 +40,12 @@ const ManageUser = () => {
   const handleDisableUser = () => {
     disableUser(activeProfile?._id)
       .then((response) => {
+        dispatch(
+          setMessage({
+            messageType: response.data?.messageType,
+            message: response.data?.message,
+          })
+        );
         console.log(response);
         if (response.status === 200) {
           setActiveProfile((profile) => {
@@ -61,6 +70,12 @@ const ManageUser = () => {
       })
       .catch((err) => {
         console.log(err);
+        dispatch(
+          setMessage({
+            messageType: err.response.data?.messageType,
+            message: err.response.data?.message,
+          })
+        );
       });
   };
 
@@ -68,6 +83,12 @@ const ManageUser = () => {
     deleteUser(activeProfile?._id)
       .then((response) => {
         console.log(response);
+        dispatch(
+          setMessage({
+            messageType: response.data?.messageType,
+            message: response.data?.message,
+          })
+        );
         const filteredTopProfiles = topProfiles.filter(
           (profile) => profile._id !== activeProfile._id
         );
@@ -81,6 +102,12 @@ const ManageUser = () => {
       })
       .catch((err) => {
         console.log(err);
+        dispatch(
+          setMessage({
+            messageType: err.response.data?.messageType,
+            message: err.response.data?.message,
+          })
+        );
       });
   };
 

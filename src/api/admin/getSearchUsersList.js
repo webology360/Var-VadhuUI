@@ -7,7 +7,7 @@ let cancelToken;
 const getSearchUsersList = (type, value) => {
   cancelToken = axiosCancelToken(cancelToken);
   return apiRequestType(
-    apiTypes.GET,
+    apiTypes.POST,
     apiContants.ADMIN.GET_USERS_LIST(type, value),
     "",
     cancelToken

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./SearchForm.module.scss";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -11,6 +11,7 @@ import { stateAndCityList } from "../../../utils/stateAndCityList";
 import { RxCounterClockwiseClock } from "react-icons/rx";
 import getSearchUserList from "../../../api/home/getSearchUserList";
 import { motherToungeList } from "../../../utils/motherTounge";
+import { setMessage } from "../../Common/commonSlice";
 
 const SearchForm = () => {
   const dispatch = useDispatch();
@@ -23,14 +24,25 @@ const SearchForm = () => {
     max: 30,
   });
 
-  const [selectedState, setSelectedState] = useState("");
-
   const genderList = [
-    { id: 2, value: "Women" },
-    { id: 1, value: "Men" },
+    { id: 2, value: "Woman" },
+    { id: 1, value: "Man" },
   ];
 
-  const stateList = Object.keys(stateAndCityList);
+  const [stateList, setStateList] = useState([]);
+  const [nationalLanguageList, setNationalLanguageList] = useState([]);
+
+  useEffect(() => {
+    const stateListArr = Object.keys(stateAndCityList);
+    const updateStateList = stateListArr.map((item, index) => {
+      return { name: item, id: index + 1, isSelected: true };
+    });
+    const updateLanguageList = motherToungeList.map((item, index) => {
+      return { name: item, id: index + 1, isSelected: true };
+    });
+    setStateList(updateStateList);
+    setNationalLanguageList(updateLanguageList);
+  }, []);
 
   const fieldList = [
     {
@@ -77,26 +89,31 @@ const SearchForm = () => {
       label: "State",
       placeholder: "Select State",
       name: "state",
-      type: "select",
+      type: "multiselect",
+      fieldName: "name",
+      fieldValue: "id",
       valueArr: stateList,
-      onChange: (e) => setSelectedState(e.target.value),
+      onChange: setStateList,
       // required: true,
     },
-    {
-      key: 5,
-      label: "Location",
-      placeholder: "Select Location",
-      name: "location",
-      type: "select",
-      valueArr: selectedState ? stateAndCityList[selectedState] : [], // required: true,
-    },
+    // {
+    //   key: 5,
+    //   label: "Location",
+    //   placeholder: "Select Location",
+    //   name: "location",
+    //   type: "select",
+    //   valueArr: selectedState ? stateAndCityList[selectedState] : [], // required: true,
+    // },
     {
       key: 6,
       label: "Mother Tounge",
       placeholder: "Select Mother Tounge",
       name: "motherTounge",
-      type: "select",
-      valueArr: motherToungeList,
+      type: "multiselect",
+      fieldName: "name",
+      fieldValue: "id",
+      valueArr: nationalLanguageList,
+      onChange: setNationalLanguageList,
       // required: true,
     },
   ];
@@ -104,9 +121,9 @@ const SearchForm = () => {
   const defaultSearchFormValues = {
     gender: genderList[0].id,
     ageFrom: 20,
-    ageTo: 30,
+    ageTo: 35,
     state: "",
-    location: "",
+    // location: "",
     motherTounge: "",
   };
 
@@ -114,9 +131,9 @@ const SearchForm = () => {
     gender: yup.string().required(),
     ageFrom: yup.number().required(),
     ageTo: yup.number().required(),
-    state: yup.string().required(),
-    location: yup.string().required(),
-    motherTounge: yup.string().required(),
+    // state: yup.string().required(),
+    // location: yup.string().required(),
+    // motherTounge: yup.string().required(),
   });
 
   const methods = useForm({
@@ -141,17 +158,51 @@ const SearchForm = () => {
   };
 
   const onSubmit = (values) => {
-    const { gender, ageFrom, ageTo, state, location, motherTounge } = values;
-    getSearchUserList(
+    const {
       gender,
       ageFrom,
       ageTo,
-      state,
-      location,
-      motherTounge
-    ).then((response) => {
-      dispatch(setProfiles(response?.data?.data));
-    });
+      // state, location, motherTounge
+    } = values;
+    console.log(stateList, nationalLanguageList, values);
+    const updatedStateList = stateList
+      .filter((state) => state?.isSelected)
+      .map((state) => state.name);
+    const updatedMotherTounge = nationalLanguageList
+      .filter((state) => state?.isSelected)
+      .map((state) => state.name);
+    const formData = {
+      ageFrom,
+      ageTo,
+      state: updatedStateList,
+      motherTounge: updatedMotherTounge,
+    };
+    getSearchUserList(
+      gender,
+      formData
+      // ageFrom,
+      // ageTo,
+      // stateList,
+      // location,
+      // nationalLanguageList
+    )
+      .then((response) => {
+        dispatch(
+          setMessage({
+            messageType: response.data?.messageType,
+            message: response.data?.message,
+          })
+        );
+        dispatch(setProfiles(response?.data?.data));
+      })
+      .catch((err) => {
+        dispatch(
+          setMessage({
+            messageType: err.response.data?.messageType,
+            message: err.response.data?.message,
+          })
+        );
+      });
   };
 
   return (

@@ -2,6 +2,7 @@ import Header from "./components/Header/Header";
 import Router from "./router/Router";
 import classes from "./App.module.scss";
 import { BrowserRouter } from "react-router-dom";
+import ToastMessage from "./features/Common/ToastMessage/ToastMessage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         </div>
         {/* <Footer /> */}
       </div>
+      <ToastMessage />
     </BrowserRouter>
   );
 }

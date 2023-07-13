@@ -21,25 +21,92 @@ import appRoutes from "../../utils/appRoutes";
 import updateUser from "../../api/admin/updateUser";
 import uploadImages from "../../api/admin/uploadImages";
 import uploadBioData from "../../api/admin/uploadBioData";
+import { employmentTypes } from "../../utils/employmentTypes";
+import { setMessage } from "../../features/Common/commonSlice";
+import { useDispatch } from "react-redux";
 
 const UserForm = ({ userForm }) => {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  const [presentAddressState, setPresentAddressState] = useState("");
-  const [permanentAddressState, setPermanentAddressState] = useState("");
+  const dispatch = useDispatch();
   const [isBioData, setIsBioData] = useState(false);
   const [isImageList, setIsImageList] = useState(false);
 
+  const userFormSchema = yup.object().shape({
+    firstName: yup.string().required("This field is required"),
+    middleName: yup.string(),
+    lastName: yup.string().required("This field is required"),
+    dateOfBirth: yup.date().required("This field is required"),
+    email: yup
+      .string()
+      .required("This field is required")
+      .email("Please enter valid email"),
+    mobileNumber: yup.number().required("This field is required"),
+    occupation: yup.string().required("This field is required"),
+    education: yup.string().required("This field is required"),
+    preferredPartnerChoice: yup.string().required("This field is required"),
+    gender: yup.number().required("This field is required"),
+    height: yup.number().required("This field is required"),
+    age: yup.number().required("This field is required").min(18),
+    bodyComplexion: yup.string().required("This field is required"),
+    motherTounge: yup.string().required("This field is required"),
+    employmentType: yup.string().required("This field is required"),
+    familyMembersAndRelations: yup.array().of(
+      yup.object({
+        name: yup.string().required("This field is required"),
+        relation: yup.string().required("This field is required"),
+        occupation: yup.string().required("This field is required"),
+      })
+    ),
+    zodiacSign: yup.string().required("This field is required"),
+    presentAddress: yup.object({
+      state: yup.string().required("This field is required"),
+      area: yup.string().required("This field is required"),
+      pincode: yup.number().required("This field is required"),
+    }),
+    permanentAddress: yup.object({
+      state: yup.string().required("This field is required"),
+      area: yup.string().required("This field is required"),
+      pincode: yup.number().required("This field is required"),
+    }),
+    bioData: yup.mixed().nullable().required("This field is required"),
+    annualIncome: yup.number().required("This field is required"),
+    remarks: yup.string().required("This field is required"),
+    imgList: yup.mixed().nullable().required("This field is required"),
+  });
+
+  const methods = useForm({
+    resolver: yupResolver(userFormSchema),
+    mode: "onBlur",
+    defaultValues: userForm,
+  });
+
+  const {
+    handleSubmit,
+    formState: { errors, isValid },
+    reset,
+    control,
+    setValue,
+    getValues,
+  } = methods;
+
+  const employmentTypeList = [
+    {
+      name: "Self Employed/Business",
+      value: employmentTypes.SELF_EMPLOYED_BUSINESS,
+    },
+    { name: "Govt./Public Sector", value: employmentTypes.GOVT_PUBLIC_SECTOR },
+    { name: "Private Sector", value: employmentTypes.PRIVATE_SECTOR },
+  ];
   const genderList = [
     { name: "Male", value: genderTypes.MALE },
     { name: "Female", value: genderTypes.FEMALE },
   ];
   const stateList = Object.keys(stateAndCityList);
 
-  useEffect(() => {
-    setPresentAddressState(userForm?.permanentAddress?.state);
-    setPermanentAddressState(userForm?.presentAddress?.state);
-  }, [userForm]);
+  // useEffect(() => {
+  //   setPresentAddressState(userForm?.permanentAddress?.state);
+  //   setPermanentAddressState(userForm?.presentAddress?.state);
+  // }, [userForm]);
 
   const handleSetAge = (e) => {
     const today = new Date();
@@ -52,6 +119,30 @@ const UserForm = ({ userForm }) => {
     setValue("age", age);
   };
 
+  const handleCheckIsSameAddress = (isChecked) => {
+    if (isChecked) {
+      const values = getValues();
+      console.log(values);
+      setValue("permanentAddress", values.presentAddress);
+    } else {
+      setValue("permanentAddress", userForm.permanentAddress);
+    }
+  };
+  console.log(errors);
+
+  const isSameAddress = {
+    key: 1,
+    label: "Same As Above",
+    type: "checkbox",
+    name: "isSameAddress",
+    isLight: false,
+    height: 2,
+    width: 2,
+    direction: "row-reverse",
+    onChange: (e) => {
+      handleCheckIsSameAddress(e.target.checked);
+    },
+  };
   const fieldList = {
     basicDetails: [
       {
@@ -83,6 +174,20 @@ const UserForm = ({ userForm }) => {
         name: "dateOfBirth",
         isLight: false,
         onChange: (e) => handleSetAge(e),
+      },
+      {
+        key: 19,
+        label: "Email",
+        placeholder: "Enter Email Id",
+        name: "email",
+        isLight: false,
+      },
+      {
+        key: 20,
+        label: "Mobile Number",
+        placeholder: "Enter Mobile Number",
+        name: "mobileNumber",
+        isLight: false,
       },
       {
         key: 5,
@@ -118,6 +223,17 @@ const UserForm = ({ userForm }) => {
         isLight: false,
       },
       {
+        key: 18,
+        label: "Employment Type",
+        placeholder: "Select Employment Type",
+        name: "employmentType",
+        type: "select",
+        isLight: false,
+        valueArr: employmentTypeList,
+        fieldName: "name",
+        fieldValue: "value",
+      },
+      {
         key: 9,
         label: "Occupation",
         placeholder: "Enter Occupation",
@@ -129,6 +245,7 @@ const UserForm = ({ userForm }) => {
         label: "Preferred Partner Choice",
         placeholder: "Enter Preferred Partner Choice",
         name: "preferredPartnerChoice",
+        type: "textarea",
         isLight: false,
       },
       {
@@ -196,9 +313,9 @@ const UserForm = ({ userForm }) => {
       },
       {
         key: 17,
-        label: "Remarks",
+        label: "More about me",
         type: "textarea",
-        placeholder: "Enter Remarks",
+        placeholder: "Enter More about me",
         name: "remarks",
         isLight: false,
         width: 100,
@@ -223,19 +340,19 @@ const UserForm = ({ userForm }) => {
         placeholder: "Select State",
         name: "state",
         isLight: false,
-        onChange: (e) => setPresentAddressState(e.target.value),
+        // onChange: (e) => setPresentAddressState(e.target.value),
       },
-      {
-        key: 3,
-        type: "select",
-        label: "City",
-        valueArr: presentAddressState
-          ? stateAndCityList[presentAddressState]
-          : [],
-        placeholder: "Select City",
-        name: "location",
-        isLight: false,
-      },
+      // {
+      //   key: 3,
+      //   type: "select",
+      //   label: "City",
+      //   valueArr: presentAddressState
+      //     ? stateAndCityList[presentAddressState]
+      //     : [],
+      //   placeholder: "Select City",
+      //   name: "location",
+      //   isLight: false,
+      // },
       {
         key: 4,
         label: "Pincode",
@@ -262,19 +379,19 @@ const UserForm = ({ userForm }) => {
         placeholder: "Select State",
         name: "state",
         isLight: false,
-        onChange: (e) => setPermanentAddressState(e.target.value),
+        // onChange: (e) => setPermanentAddressState(e.target.value),
       },
-      {
-        key: 3,
-        type: "select",
-        label: "City",
-        valueArr: permanentAddressState
-          ? stateAndCityList[permanentAddressState]
-          : [],
-        placeholder: "Select City",
-        name: "location",
-        isLight: false,
-      },
+      // {
+      //   key: 3,
+      //   type: "select",
+      //   label: "City",
+      //   valueArr: permanentAddressState
+      //     ? stateAndCityList[permanentAddressState]
+      //     : [],
+      //   placeholder: "Select City",
+      //   name: "location",
+      //   isLight: false,
+      // },
       {
         key: 4,
         label: "Pincode",
@@ -285,63 +402,10 @@ const UserForm = ({ userForm }) => {
     ],
   };
 
-  const userFormSchema = yup.object().shape({
-    firstName: yup.string().required("This field is required"),
-    middleName: yup.string().required("This field is required"),
-    lastName: yup.string().required("This field is required"),
-    dateOfBirth: yup.date().required("This field is required"),
-    occupation: yup.string().required("This field is required"),
-    education: yup.string().required("This field is required"),
-    preferredPartnerChoice: yup.string().required("This field is required"),
-    gender: yup.number().required("This field is required"),
-    height: yup.number().required("This field is required"),
-    age: yup.number().required("This field is required").min(18),
-    bodyComplexion: yup.string().required("This field is required"),
-    motherTounge: yup.string().required("This field is required"),
-    familyMembersAndRelations: yup.array().of(
-      yup.object({
-        name: yup.string().required("This field is required"),
-        relation: yup.string().required("This field is required"),
-      })
-    ),
-    zodiacSign: yup.string().required("This field is required"),
-    presentAddress: yup.object({
-      state: yup.string().required("This field is required"),
-      location: yup.string().required("This field is required"),
-      area: yup.string().required("This field is required"),
-      pincode: yup.number().required("This field is required"),
-    }),
-    permanentAddress: yup.object({
-      state: yup.string().required("This field is required"),
-      location: yup.string().required("This field is required"),
-      area: yup.string().required("This field is required"),
-      pincode: yup.number().required("This field is required"),
-    }),
-    bioData: yup.mixed().nullable().required("This field is required"),
-    annualIncome: yup.number().required("This field is required"),
-    remarks: yup.string().required("This field is required"),
-    imgList: yup.mixed().nullable().required("This field is required"),
-  });
-
-  const methods = useForm({
-    resolver: yupResolver(userFormSchema),
-    mode: "onBlur",
-    defaultValues: userForm,
-  });
-
-  const {
-    handleSubmit,
-    formState: { errors, isValid },
-    reset,
-    control,
-    setValue,
-    // getValues,
-  } = methods;
-
   useEffect(() => {
     reset(userForm);
-    setIsBioData(true);
-    setIsImageList(true);
+    // setIsBioData(true);
+    // setIsImageList(true);
   }, [reset, userForm]);
 
   const { fields, append, remove } = useFieldArray({
@@ -366,7 +430,8 @@ const UserForm = ({ userForm }) => {
     const { bioData, imgList, ...restFormData } = values;
     const imagesData = new FormData();
     const pdfData = new FormData();
-    [...imgList].forEach((image) => {
+    console.log(bioData, imgList);
+    [...imgList]?.forEach((image) => {
       imagesData.append("images", image);
     });
     pdfData.append("bioData", bioData[0]);
@@ -375,15 +440,46 @@ const UserForm = ({ userForm }) => {
       updateUser(userForm?._id, { ...userForm, ...restFormData })
         .then((response) => {
           // console.log(response);
+          dispatch(
+            setMessage({
+              messageType: response.data?.messageType,
+              message: response.data?.message,
+            })
+          );
           if (response.status === 201) {
             if (isImageList) {
               uploadImages(userForm?._id, imagesData)
                 .then((imgResponse) => {
                   console.log(imgResponse);
+                  if (isBioData) {
+                    uploadBioData(response?.data?.data?._id, pdfData)
+                      .then((pdfResponse) => {
+                        console.log(pdfResponse);
+                        if (values.gender === 1) {
+                          navigate(appRoutes.ADMIN.MANAGE_GROOM);
+                        } else {
+                          navigate(appRoutes.ADMIN.MANAGE_BRIDE);
+                        }
+                      })
+                      .catch((err) => {
+                        console.log(err);
+                        dispatch(
+                          setMessage({
+                            messageType: err.response.data?.messageType,
+                            message: err.response.data?.message,
+                          })
+                        );
+                      });
+                  } else {
+                    if (values.gender === 1) {
+                      navigate(appRoutes.ADMIN.MANAGE_GROOM);
+                    } else {
+                      navigate(appRoutes.ADMIN.MANAGE_BRIDE);
+                    }
+                  }
                 })
                 .catch((err) => console.log(err));
-            }
-            if (isBioData) {
+            } else if (isBioData) {
               uploadBioData(response?.data?.data?._id, pdfData)
                 .then((pdfResponse) => {
                   console.log(pdfResponse);
@@ -393,15 +489,43 @@ const UserForm = ({ userForm }) => {
                     navigate(appRoutes.ADMIN.MANAGE_BRIDE);
                   }
                 })
-                .catch((err) => console.log(err));
+                .catch((err) => {
+                  console.log(err);
+                  dispatch(
+                    setMessage({
+                      messageType: err.response.data?.messageType,
+                      message: err.response.data?.message,
+                    })
+                  );
+                });
+            } else {
+              if (values.gender === 1) {
+                navigate(appRoutes.ADMIN.MANAGE_GROOM);
+              } else {
+                navigate(appRoutes.ADMIN.MANAGE_BRIDE);
+              }
             }
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          dispatch(
+            setMessage({
+              messageType: err.response.data?.messageType,
+              message: err.response.data?.message,
+            })
+          );
+        });
     } else {
-      addUser({ ...restFormData, bioData: "good boy" })
+      addUser({ ...restFormData })
         .then((response) => {
           // console.log(response);
+          dispatch(
+            setMessage({
+              messageType: response.data?.messageType,
+              message: response.data?.message,
+            })
+          );
           if (response.status === 201) {
             uploadImages(response?.data?.data?._id, imagesData)
               .then((imgResponse) => {
@@ -415,12 +539,36 @@ const UserForm = ({ userForm }) => {
                       navigate(appRoutes.ADMIN.MANAGE_BRIDE);
                     }
                   })
-                  .catch((err) => console.log(err));
+                  .catch((err) => {
+                    console.log(err);
+                    dispatch(
+                      setMessage({
+                        messageType: err.response.data?.messageType,
+                        message: err.response.data?.message,
+                      })
+                    );
+                  });
               })
-              .catch((err) => console.log(err));
+              .catch((err) => {
+                console.log(err);
+                dispatch(
+                  setMessage({
+                    messageType: err.response.data?.messageType,
+                    message: err.response.data?.message,
+                  })
+                );
+              });
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          dispatch(
+            setMessage({
+              messageType: err.response.data?.messageType,
+              message: err.response.data?.message,
+            })
+          );
+        });
     }
   };
 
@@ -489,6 +637,16 @@ const UserForm = ({ userForm }) => {
                           ?.message,
                     }}
                   />
+                  <Input
+                    fieldProps={{
+                      name: `familyMembersAndRelations.${index}.occupation`,
+                      placeholder: "Enter Family Member Occupation",
+                      isLight: false,
+                      error:
+                        errors?.familyMembersAndRelations?.[index]?.occupation
+                          ?.message,
+                    }}
+                  />
                   {relationsArr?.length > 1 && (
                     <div
                       className={
@@ -547,6 +705,17 @@ const UserForm = ({ userForm }) => {
               }
             >
               Permanent Address
+              <div
+                className={
+                  classes.userForm__addressDetails__permanentAddress__heading__input
+                }
+              >
+                <Input
+                  fieldProps={{
+                    ...isSameAddress,
+                  }}
+                />
+              </div>
             </div>
             <div
               className={

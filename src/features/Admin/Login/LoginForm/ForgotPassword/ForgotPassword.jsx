@@ -3,8 +3,11 @@ import Input from "../../../../../components/common/Input/Input";
 import forgotPassword from "../../../../../api/admin/forgotPassword";
 import Button from "../../../../../components/common/Button/Button";
 import classes from "./ForgotPassword.module.scss";
+import { setMessage } from "../../../../Common/commonSlice";
+import { useDispatch } from "react-redux";
 
 const ForgotPassword = ({ handleForgotPasswordModal, reset }) => {
+  const dispatch = useDispatch();
   const [forgotPasswordUserId, setForgotPasswordUserId] = useState("");
 
   const handleSetForgotPassword = (e) => {
@@ -32,12 +35,24 @@ const ForgotPassword = ({ handleForgotPasswordModal, reset }) => {
   const handleForgotPassword = () => {
     forgotPassword(forgotPasswordUserId)
       .then((response) => {
+        dispatch(
+          setMessage({
+            messageType: response.data?.messageType,
+            message: response.data?.message,
+          })
+        );
         console.log(response);
         reset();
         handleForgotPasswordModal();
       })
       .catch((err) => {
         console.log(err);
+        dispatch(
+          setMessage({
+            messageType: err.response.data?.messageType,
+            message: err.response.data?.message,
+          })
+        );
       });
   };
 

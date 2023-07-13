@@ -12,6 +12,7 @@ import useDebounce from "../../hooks/useDebounce";
 import { genderTypes } from "../../utils/genderTypes";
 import { useNavigate } from "react-router";
 import appRoutes from "../../utils/appRoutes";
+import { useDispatch } from "react-redux";
 
 const SearchDetailsContainer = ({
   type = genderTypes.FEMALE,
@@ -21,6 +22,7 @@ const SearchDetailsContainer = ({
   setUsersList,
 }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (e) => {
@@ -34,7 +36,7 @@ const SearchDetailsContainer = ({
 
   const searchField = {
     key: 1,
-    placeholder: "Search with name (or) location (or) age (or) location",
+    placeholder: "Search with name (or) location (or) age",
     name: "searchDetails",
     isLight: false,
     height: 4.2,
@@ -50,13 +52,17 @@ const SearchDetailsContainer = ({
   useEffect(() => {
     const genderType =
       type === genderTypes.FEMALE ? genderTypes.FEMALE : genderTypes.MALE;
-    getSearchUsersList(genderType, debouncedSearchTerm).then((response) => {
-      if (response.status === 200) {
-        setUsersList(response?.data?.data);
-        setActiveProfile(response?.data?.data[0]);
-      }
-    });
-  }, [debouncedSearchTerm, type, setActiveProfile, setUsersList]);
+    getSearchUsersList(genderType, debouncedSearchTerm)
+      .then((response) => {
+        if (response.status === 200) {
+          setUsersList(response?.data?.data);
+          setActiveProfile(response?.data?.data[0]);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [dispatch, debouncedSearchTerm, type, setActiveProfile, setUsersList]);
 
   const searchDetailsSchema = yup.object().shape({
     searchDetails: yup.string().required("This field is required"),

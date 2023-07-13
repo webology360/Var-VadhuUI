@@ -144,18 +144,18 @@
   }
   &__img4 {
     position: absolute;
-    top: 43rem;
+    top: 40rem;
     left: 40rem;
     z-index: 4;
     @include laptop {
-      top: 36rem;
+      top: 32rem;
       left: 32rem;
-      scale: 0.8;
+      scale: 0.7;
     }
     @include tablet {
       top: 28rem;
       left: 26rem;
-      scale: 0.7;
+      scale: 0.6;
     }
     @include mobile {
       top: 20rem;

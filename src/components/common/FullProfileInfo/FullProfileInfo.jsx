@@ -2,8 +2,9 @@ import React from "react";
 import classes from "./FullProfileInfo.module.scss";
 import PDFIcon from "../../../assets/icons/Profile/PDFIcon";
 import moment from "moment";
+import Button from "../Button/Button";
 
-const FullProfileInfo = ({ profile, isHeading = true }) => {
+const FullProfileInfo = ({ profile, isHeading = true, handleConnect }) => {
   const dateOfBirth =
     profile && new Date(profile?.dateOfBirth).toLocaleDateString();
   const formatDateOfBirth = moment(dateOfBirth).format("DD/MM/YYYY");
@@ -13,6 +14,7 @@ const FullProfileInfo = ({ profile, isHeading = true }) => {
       {isHeading && (
         <div className={classes.fullProfileInfo__header}>
           Full Profile Information :
+          <Button label="Connect" small dark onClick={handleConnect} />
         </div>
       )}
       <div className={classes.fullProfileInfo__infoContainer}>
@@ -176,9 +178,11 @@ const FullProfileInfo = ({ profile, isHeading = true }) => {
               <div
                 className={classes.fullProfileInfo__infoContainer__field__value}
               >
-                {`${profile?.presentAddress?.area}, ${
+                {/* ${
                   profile?.presentAddress?.location
-                },${"\n"} ${profile?.presentAddress?.state}, ${
+                }, */}
+                {`${profile?.presentAddress?.area}, 
+                ${"\n"} ${profile?.presentAddress?.state}, ${
                   profile?.presentAddress?.pincode
                 }.`}
               </div>
@@ -194,9 +198,11 @@ const FullProfileInfo = ({ profile, isHeading = true }) => {
               <div
                 className={classes.fullProfileInfo__infoContainer__field__value}
               >
-                {`${profile?.permanentAddress?.area}, ${
+                {/* ${
                   profile?.permanentAddress?.location
-                },${"\n"} ${profile?.permanentAddress?.state}, ${
+                }, */}
+                {`${profile?.permanentAddress?.area}, 
+                ${"\n"} ${profile?.permanentAddress?.state}, ${
                   profile?.permanentAddress?.pincode
                 }.`}
               </div>

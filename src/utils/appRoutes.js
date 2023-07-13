@@ -2,8 +2,10 @@ const appRoutes = {
   BACK: -1,
   ROOT: "/",
   HOME: "/home",
+  BLOGS: "/blogs",
   ABOUT_US: "/aboutUs",
   CONTACT_US: "/contactUs",
+  PRIVACY_POLICY: "/privacyPolicy",
   LOGIN: "/login",
   RESET_PASSWORD: {
     DEFAULT: "/resetPassword/:adminId",
