@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./BlogItem.module.scss";
-import ImageList from "../common/ImageList/ImageList";
+// import ImageList from "../common/ImageList/ImageList";
 
 const BlogItem = ({ blogItem, index }) => {
   return (
@@ -19,7 +19,7 @@ const BlogItem = ({ blogItem, index }) => {
         alt="blog"
       />
       <div className={classes.blogItem__contentContainer}>
-        <h1>{blogItem?.heading}</h1>
+        <h1 className={classes.blogItem__contentContainer__header}>{blogItem?.heading}</h1>
         <div className={classes.blogItem__contentContainer__body}>
           {blogItem?.body}
         </div>

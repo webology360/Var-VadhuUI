@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./ToggleButton.module.scss";
+import { FormattedMessage } from "react-intl";
 
 const ToggleButton = ({
   handleChange,
@@ -11,8 +12,8 @@ const ToggleButton = ({
     <label className={classes.switch}>
       <input type="checkbox" onChange={handleChange} checked={checked} />
       <span className={classes.slider + " " + classes.round}>
-        <span className={classes.on}>{leftText}</span>
-        <span className={classes.off}>{rightText}</span>
+        <span className={classes.on}>{<FormattedMessage id="home.Lang" />}</span>
+        <span className={classes.off}>{<FormattedMessage id="home.Lang" />}</span>
       </span>
     </label>
   );

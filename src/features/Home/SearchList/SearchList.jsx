@@ -16,9 +16,9 @@ const SearchList = () => {
     <div className={classes.searchList}>
       <div className={classes.searchList__header}>
         <div className={classes.searchList__header__searchDetails}>
-          Serach Result :
+          Search Result :
           <div className={classes.searchList__header__searchDetails__count}>
-            total {profilesCount} profiles
+            Total {profilesCount} profiles
           </div>
         </div>
         {/* <div

@@ -10,7 +10,20 @@
   "home.adminlogin": "व्यवस्थापक लॉगिन",
   "home.login": "लॉगिन",
   "home.logout": "लॉगआउट",
-
+  "home.Lang":"ENGLISH",
+  "home.Looking.For":"ढूंढ रहे हैं",
+  "home.Age.From":"से आयु",
+  "home.Age.To":"आयु तक",
+  "home.To":"को",
+  "home.State":"राज्य",
+  "home.Mother.Tounge":"मातृ भाषा",
+  "home.Reset":"रीसेट",
+  "home.Search":"खोज",
+  "home.Man":"दूल्हा",
+  "home.Woman":"दुल्हन",
+  "home.Search.Result":"खोज का परिणाम",
+  "home.Total":"कुल",
+  "home.profiles":"प्रोफाइल",
   "admin.accountSettings.manageProfile": "Manage Profile",
   "admin.accountSettings.changePassword": "Change Password"
 }

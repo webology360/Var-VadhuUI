@@ -12,6 +12,7 @@ import { RxCounterClockwiseClock } from "react-icons/rx";
 import getSearchUserList from "../../../api/home/getSearchUserList";
 import { motherToungeList } from "../../../utils/motherTounge";
 import { setMessage } from "../../Common/commonSlice";
+import { FormattedMessage } from "react-intl";
 
 const SearchForm = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,12 @@ const SearchForm = () => {
     { id: 2, value: "Woman" },
     { id: 1, value: "Man" },
   ];
+
+  const lookingFor=<FormattedMessage id="home.Looking.For" />;
+  const ageFor=<FormattedMessage id="home.Age.From" />;
+  const ageToo=<FormattedMessage id="home.Age.To" />;
+  //const stateLabel=<FormattedMessage id="home.State" />;
+  //const motherTounge=<FormattedMessage id="home.Mother.Tounge" />;
 
   const [stateList, setStateList] = useState([]);
   const [nationalLanguageList, setNationalLanguageList] = useState([]);
@@ -47,7 +54,7 @@ const SearchForm = () => {
   const fieldList = [
     {
       key: 1,
-      label: "Looking For",
+      label: lookingFor,
       placeholder: "Select option",
       name: "gender",
       fieldName: "value",
@@ -58,7 +65,7 @@ const SearchForm = () => {
     },
     {
       key: 2,
-      label: "Age From",
+      label: ageFor,
       name: "ageFrom",
       type: "number",
       // required: true,
@@ -72,7 +79,7 @@ const SearchForm = () => {
     },
     {
       key: 3,
-      label: "Age To",
+      label: ageToo,
       name: "ageTo",
       type: "number",
       // required: true,

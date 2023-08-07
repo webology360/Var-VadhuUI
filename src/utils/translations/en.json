@@ -10,7 +10,23 @@
   "home.adminlogin": "Admin Login",
   "home.login": "Login",
   "home.logout": "Logout",
+  "home.Looking.For":"Looking For",
+  "home.Age.From":"Age From",
+  "home.Age.To":"Age To",
+  "home.To":"To",
+  "home.State":"State",
+  "home.Mother.Tounge":"Mother Tounge",
+  "home.Reset":"Reset",
+  "home.Search":"Search",
+  "home.Man":"Man",
+  "home.Woman":"Woman",
+  "home.Search.Result":"Search Result",
+  "home.Total":"Total",
+  "home.profiles":"profiles",
+  "home.Lang":"हिन्दी",
+
 
   "admin.accountSettings.manageProfile": "Manage Profile",
   "admin.accountSettings.changePassword": "Change Password"
+ 
 }
