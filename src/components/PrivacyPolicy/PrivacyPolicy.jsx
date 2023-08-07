@@ -6,11 +6,11 @@ const PrivacyPolicy = () => {
   return (
     <div className={classes.privacyPolicyMain}>
       <div className={classes.body}>
-        <h2>Vivaah Matrimony Privacy Policy</h2>
+        <h2>ShadiRista.com Privacy Policy</h2>
         <div className={classes.heading}>Effective Date: 8th Jan 2019</div>
         <div className={classes.heading}>Last updated on: 19th Jan 2023</div>
         <div className={classes.header}>
-          HOW YOUR PERSONAL DATA WILL BE PROCESSED BY VIVAAH MATRIMONY{" "}
+          HOW YOUR PERSONAL DATA WILL BE PROCESSED BY ShadiRista.com{" "}
         </div>
         <p>
           The protection of your personal data (user of Shot classes) has the
@@ -158,7 +158,7 @@ const PrivacyPolicy = () => {
       <div className={classes.subheaderInfo}>
         <b>Webology and Microsoft Azure PaaS</b>
         <p>
-          Webology hosts Vivaah Matrimony in Microsoft Azure PaaS service. All
+          Webology hosts ShadiRista.com in Microsoft Azure PaaS service. All
           personal data received from customer is stored in Azure storages.
         </p>
         <p>
@@ -252,12 +252,12 @@ const PrivacyPolicy = () => {
           Webology has entered into a contract with your organization for your
           organization to use Shot Classes. Processing is performed exclusively
           to fulfill the contractual and business obligations and for
-          maintaining the supplier business relationship. Vivaah Matrimony
+          maintaining the supplier business relationship. ShadiRista.com
           process Name, User Name/Login ID, emails as a part of minimum basic
           personal data that is required to process a user data into the system.
           UserID/LoginId is required for user to login into the system Email is
           required for user to communicate, generate password, update user
-          profile etc. Vivaah Matrimony uses business function such as
+          profile etc. ShadiRista.com uses business function such as
           Distribution, Reporting, Search etc. that may require user personal
           data in order to fulfill the business requests and we follow the Data
           protection such as masking, encryption while displaying user data.{" "}
@@ -372,8 +372,8 @@ const PrivacyPolicy = () => {
           To exercise the rights outlined above or if you belong to any other
           jurisdiction that is not listed above in respect of your Personal
           Data, you may write to{" "}
-          <a href="mailto:Support.Vivaah Matrimony@mindtree.com">
-            <u>Support.Vivaah Matrimony@mindtree.com </u>
+          <a href="mailto:webology360@gmail.com">
+            <u>webology360@gmail.com </u>
           </a>{" "}
           OR contact your respective Organization/Tenant Admin.
         </p>
@@ -382,37 +382,31 @@ const PrivacyPolicy = () => {
         9. RIGHT TO COMPLAIN TO THE CONTROLLING DATA PROTECTION AUTHORITY
       </h3>
       <div className={classes.body}>
-        <p>Jagannath PV - Head DPO </p>
+        <p>G. Gaurav - Adminstrator</p>
         <p>
           <b>Email : </b>
-          <a href="mailto:DataprotectionOffice@Webology.com ">
-            <u>DataprotectionOffice@Webology.com </u>
+          <a href="mailto:webology360@gmail.com ">
+            <u>webology360@gmail.com </u>
           </a>
         </p>
-        <p>
-          <b>Secondary email : </b>
-          <a href="mailto:Jagannath.PV@Webology.com">
-            {" "}
-            <u>Jagannath.PV@Webology.com</u>
-          </a>
-        </p>
+        
         <p>
           {" "}
           <b>Address : </b>
           <br />
-          Data Privacy Office
+          G. Gaurav
           <br />
-          Gate No. 5, L&amp;T Technology Center, Saki Vihar Road, Powai
+          Webology.in , Near Punjab National Bank, DB Road
           <br />
-          Mumbai 400072 <br />
-          INDIA <br />
+          Saharsa 852201 <br />
+          BIHAR, INDIA <br />
           Phone : +91 22 67766776
           <br />
           <p>
             {" "}
             Web :{" "}
-            <a href="https://www.Webology.com" target="_blank" rel="noreferrer">
-              <u>https://www.Webology.com</u>
+            <a href="https://www.Webology.in" target="_blank" rel="noreferrer">
+              <u>https://www.Webology.in</u>
             </a>
           </p>
         </p>
@@ -423,7 +417,7 @@ const PrivacyPolicy = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <u> https://www.Webology.com/general-privacy-policy</u>
+          <u> https://www.Webology.in/general-privacy-policy</u>
         </a>
       </div>
     </div>
