@@ -112,7 +112,7 @@ const AboutUs = () => {
           work of suitable match finding very much streamlined and easier.
         </div>
         <div className={classes.aboutUs__body__keyPeople}>
-          <div className={classes.aboutUs__body__keyPeople__heading}>
+          {/* <div className={classes.aboutUs__body__keyPeople__heading}>
             Key People
           </div>
           <div className={classes.aboutUs__body__keyPeople__list}>
@@ -127,7 +127,7 @@ const AboutUs = () => {
                 </div>
               );
             })}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
