@@ -96,15 +96,15 @@ const AboutUs = () => {
       <div className={classes.aboutUs__body}>
         <div className={classes.aboutUs__body__description}>
           <b>
-            <a href="Shaddi.Webology.in" target="_blank">
-              Shaddi.Webology.in
+            <a href="ShadiRista.com" target="_blank">
+              ShadiRista.com
             </a>
           </b>{" "}
           is place to find suitable bride and groom belonging to Bihar Tailik
           Sahu Community.
           <br />
           <br />
-          It is completely free and sponsored by founder of WebologyIn Mr. G.
+          It is completely free and sponsored by founder of Webology.in Mr. G.
           Gaurav (B.tech, M.tech).
           <br />
           <br />

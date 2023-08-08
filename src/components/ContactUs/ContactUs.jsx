@@ -7,8 +7,8 @@ const ContactUs = () => {
       <div className={classes.contactUs__header}>Contact Us</div>
       <div className={classes.contactUs__body}>
         <div className={classes.contactUs__body__description}>
-          <b>Address</b> - J585+HCG, Sahu bhawan, Langer toli chauraha, Bihari
-          Sao Ln, Patna, Bihar 800004
+          <b>Address</b> - Webology.in , Near Punjab National Bank, DB Road,
+          Saharsa 852201 BIHAR, INDIA
         </div>
         <div className={classes.contactUs__body__contacts}>
           <div className={classes.contactUs__body__contacts__contactDetails}>
@@ -17,12 +17,10 @@ const ContactUs = () => {
                 classes.contactUs__body__contacts__contactDetails__heading
               }
             >
-              Office Assistant
+              Office Bearer
             </div>
             <br />
-            Vinod Kumar <b>(9334838749)</b>
-            <br />
-            Dinesh Kumar <b>(6207736362)</b>
+            Sudhir Rajhans <b>(9431892528)</b>
           </div>
           <div className={classes.contactUs__body__contacts__contactDetails}>
             <div
