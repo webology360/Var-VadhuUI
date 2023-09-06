@@ -93,59 +93,66 @@ const Header = () => {
   };
 
   return (
-    <div
-      className={classes.header}
-      style={{ backgroundColor: isHeaderColor ? "#fff" : "transparent" }}
-    >
-      <div className={classes.header__logo}>
-        <div
-          className={classes.header__logo__menuLogo}
-          onClick={() => setIsComponentVisible(true)}
-          ref={reference}
-        >
-          <Sidebar
-            isComponentVisible={isComponentVisible}
-            setIsComponentVisible={setIsComponentVisible}
+    <div><div>
+      <marquee width="100%" bgcolor="red" height="40px"> Site will be live from 15 October 2023 || साइट 15 अक्टूबर 2023 से शुरू होगी </marquee>
+    </div>
+      <div
+        className={classes.header}
+        style={{ backgroundColor: isHeaderColor ? "#fff" : "transparent" }}
+      >
+
+        <div className={classes.header__logo}>
+          <div
+            className={classes.header__logo__menuLogo}
+            onClick={() => setIsComponentVisible(true)}
+            ref={reference}
+          >
+            <Sidebar
+              isComponentVisible={isComponentVisible}
+              setIsComponentVisible={setIsComponentVisible}
+            />
+            <RxHamburgerMenu />
+          </div>
+          <div
+            onClick={() => navigate(appRoutes.HOME)}
+            className={classes.header__logo__mainLogo}
+          >
+            <Logo />
+          </div>
+        </div>
+        <div className={classes.header__navbar}>
+          <Navbar navLinks={navLinks} />
+          <ToggleButton
+            handleChange={() => dispatch(toggleLanguage())}
+            checked={selectedLanguage === "en"}
           />
-          <RxHamburgerMenu />
-        </div>
-        <div
-          onClick={() => navigate(appRoutes.HOME)}
-          className={classes.header__logo__mainLogo}
-        >
-          <Logo />
-        </div>
-      </div>
-      <div className={classes.header__navbar}>
-        <Navbar navLinks={navLinks} />
-        <ToggleButton
-          handleChange={() => dispatch(toggleLanguage())}
-          checked={selectedLanguage === "en"}
-        />
-        {pathname !== appRoutes.LOGIN &&
-          (token ? (
-            pathname.includes(appRoutes.ADMIN.DEFAULT) ? (
-              <Button
-                label={<FormattedMessage id="home.logout" />}
-                small
-                onClick={handleLogout}
-              />
+          {pathname !== appRoutes.LOGIN &&
+            (token ? (
+              pathname.includes(appRoutes.ADMIN.DEFAULT) ? (
+                <Button
+                  label={<FormattedMessage id="home.logout" />}
+                  small
+                  onClick={handleLogout}
+                />
+              ) : (
+                <Button
+                  label="Admin"
+                  small
+                  dark
+                  onClick={() => navigate(appRoutes.ADMIN.DEFAULT)}
+                />
+              )
             ) : (
               <Button
-                label="Admin"
+                label={<FormattedMessage id="home.adminlogin" />}
                 small
-                dark
-                onClick={() => navigate(appRoutes.ADMIN.DEFAULT)}
+                onClick={handleLogin}
               />
-            )
-          ) : (
-            <Button
-              label={<FormattedMessage id="home.adminlogin" />}
-              small
-              onClick={handleLogin}
-            />
-          ))}
+            ))}
+        </div>
+
       </div>
+
     </div>
   );
 };
