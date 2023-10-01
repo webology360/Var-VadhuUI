@@ -43,7 +43,7 @@ const UserForm = ({ userForm }) => {
     mobileNumber: yup.number().required("This field is required"),
     occupation: yup.string().required("This field is required"),
     education: yup.string().required("This field is required"),
-    preferredPartnerChoice: yup.string().required("This field is required"),
+    //preferredPartnerChoice: yup.string().required("This field is required"),
     gender: yup.number().required("This field is required"),
     height: yup.number().required("This field is required"),
     age: yup.number().required("This field is required").min(18),
@@ -57,7 +57,7 @@ const UserForm = ({ userForm }) => {
         occupation: yup.string().required("This field is required"),
       })
     ),
-    zodiacSign: yup.string().required("This field is required"),
+    //zodiacSign: yup.string().required("This field is required"),
     presentAddress: yup.object({
       state: yup.string().required("This field is required"),
       area: yup.string().required("This field is required"),
@@ -69,7 +69,7 @@ const UserForm = ({ userForm }) => {
       pincode: yup.number().required("This field is required"),
     }),
     bioData: yup.mixed().nullable().required("This field is required"),
-    annualIncome: yup.number().required("This field is required"),
+    //annualIncome: yup.number().required("This field is required"),
     remarks: yup.string().required("This field is required"),
     imgList: yup.mixed().nullable().required("This field is required"),
   });
