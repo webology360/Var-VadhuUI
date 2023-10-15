@@ -3,6 +3,7 @@ import classes from "./FullProfileInfo.module.scss";
 import PDFIcon from "../../../assets/icons/Profile/PDFIcon";
 import moment from "moment";
 import Button from "../Button/Button";
+import {FaPhone } from 'react-icons/fa';
 
 const FullProfileInfo = ({ profile, isHeading = true, handleConnect }) => {
   const dateOfBirth =
@@ -14,7 +15,8 @@ const FullProfileInfo = ({ profile, isHeading = true, handleConnect }) => {
       {isHeading && (
         <div className={classes.fullProfileInfo__header}>
           Full Profile Information :
-          <Button label="Connect" small dark onClick={handleConnect} />
+          <Button label="Connect" small dark onClick={handleConnect} icon={FaPhone} />
+         
         </div>
       )}
       <div className={classes.fullProfileInfo__infoContainer}>
