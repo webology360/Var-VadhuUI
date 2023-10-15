@@ -1,5 +1,5 @@
 export const stateAndCityList = {
-  "Andaman and Nicobar Islands": ["Port Blair*"],
+  /*"Andaman and Nicobar Islands": ["Port Blair*"],
   "Andhra Pradesh": [
     "Adoni",
     "Amalapuram",
@@ -112,7 +112,7 @@ export const stateAndCityList = {
     "Silchar",
     "Tezpur",
     "Tinsukia",
-  ],
+  ],*/
   Bihar: [
     "Araria",
     "Arrah",
@@ -185,7 +185,7 @@ export const stateAndCityList = {
     "Supaul",
     "Warisaliganj",
   ],
-  Chandigarh: ["Chandigarh*"],
+ /* Chandigarh: ["Chandigarh*"],
   Chhattisgarh: [
     "Ambikapur",
     "Bhatapara",
@@ -341,7 +341,7 @@ export const stateAndCityList = {
     "Sopore",
     "Srinagar*",
     "Udhampur",
-  ],
+  ],*/
   Jharkhand: [
     "Adityapur",
     "Bokaro Steel City",
@@ -371,7 +371,7 @@ export const stateAndCityList = {
     "Simdega",
     "Tenu dam-cum-Kathhara",
   ],
-  Karnataka: [
+  /*Karnataka: [
     "Adyar",
     "Afzalpur",
     "Arsikere",
@@ -1239,5 +1239,5 @@ export const stateAndCityList = {
     "Taki",
     "Tamluk",
     "Tarakeswar",
-  ],
+  ],*/
 };
