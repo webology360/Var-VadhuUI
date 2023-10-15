@@ -47,7 +47,7 @@ const FullProfileInfo = ({ profile, isHeading = true, handleConnect }) => {
               <div
                 className={classes.fullProfileInfo__infoContainer__field__value}
               >
-                {formatDateOfBirth}
+                {formatDateOfBirth.includes('1901')?'':formatDateOfBirth}
               </div>
             </div>
             <div className={classes.fullProfileInfo__infoContainer__field}>
@@ -143,7 +143,8 @@ const FullProfileInfo = ({ profile, isHeading = true, handleConnect }) => {
                         classes.fullProfileInfo__infoContainer__field__value
                       }
                     >
-                      {`${member?.relation} : ${member?.name}`}
+                      {`${member?.relation} : ${member?.name}`} <br/>
+                      {`Occupation : ${member?.occupation}`}
                     </div>
                   );
                 })}
@@ -160,7 +161,7 @@ const FullProfileInfo = ({ profile, isHeading = true, handleConnect }) => {
               <div
                 className={classes.fullProfileInfo__infoContainer__field__value}
               >
-                {profile?.zodiacSign}
+                {profile?.zodiacSign=='NA'?'':profile?.zodiacSign}
               </div>
             </div>
           </div>
@@ -235,7 +236,7 @@ const FullProfileInfo = ({ profile, isHeading = true, handleConnect }) => {
               <div
                 className={classes.fullProfileInfo__infoContainer__field__value}
               >
-                {profile?.annualIncome} Lakhs - Yearly
+                {profile?.annualIncome==-99?"":profile?.annualIncome} Lakhs - Yearly
               </div>
             </div>
           </div>
