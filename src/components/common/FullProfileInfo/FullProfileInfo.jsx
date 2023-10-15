@@ -3,7 +3,7 @@ import classes from "./FullProfileInfo.module.scss";
 import PDFIcon from "../../../assets/icons/Profile/PDFIcon";
 import moment from "moment";
 import Button from "../Button/Button";
-import {FaPhone } from 'react-icons/fa';
+import {FaPhone,FaMobile,FaPhoneSquare } from 'react-icons/fa';
 
 const FullProfileInfo = ({ profile, isHeading = true, handleConnect }) => {
   const dateOfBirth =
