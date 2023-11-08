@@ -94,7 +94,7 @@ const Header = () => {
 
   return (
     <div><div>
-      <marquee width="100%" bgcolor="red" height="60px" fontSize= "2.5rem"> Site will be live from 21 October 2023, Data Upload in Progress || साइट 21 अक्टूबर 2023 से शुरू होगी, डेटा अपलोड प्रगति पर है| </marquee>
+      <marquee width="100%" bgcolor="red" height="60px" fontSize= "2.5rem"> Teli-Sahu Matrimonial Website || तेली-साहू वैवाहिक वेबसाइट </marquee>
     </div>
       <div
         className={classes.header}
