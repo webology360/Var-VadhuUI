@@ -1,5 +1,5 @@
 export const apiContants = {
-  //BASE_URL_1: "http://localhost:5000/api/",
+  //BASE_URL_1: "http://localhost:5000/api/",test
   BASE_URL_1: "https://varvadhuservices.onrender.com/api/",
   ADMIN: {
     LOGIN: "admin/login",
